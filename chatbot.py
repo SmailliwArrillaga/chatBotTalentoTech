@@ -114,7 +114,6 @@ st.title("Bienvenidos al chatBot de Talento Tech")
 
 MODELOS = ['llama3-8b-8192', 'llama3-70b-8192'] # Se modifica en Clase 7
 def configurar_pagina():
-    st.title("Mi chat de IA")
     
     st.sidebar.title("Modelos disponibles")
     
