@@ -112,11 +112,20 @@ st.image("imagen1.png", width=400)
 st.title("Bienvenidos al chatBot de Talento Tech")
 st.markdown("""
 <p style='font-size:16px; color:#1c1c1c; margin-top: -10px;'>
-Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong>.  
-El objetivo es que pongas en juego tus habilidades para redactar prompts <strong>claros, específicos y funcionales</strong> según cada desafío.  
-🧠 Probá distintas versiones, ajustá según los resultados y reflexioná sobre cómo influye el diseño del prompt en la calidad de la respuesta.
-<br><br>
-📌 Recordá: un buen prompt puede marcar la diferencia entre una respuesta vaga y una verdaderamente útil para tu curso o trabajo.
+
+🧠 Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong> del curso de Inteligencia Artificial.  
+Vas a poder resolver desafíos reales de tu área profesional mientras mejorás tu capacidad para dar instrucciones claras, específicas y funcionales a una IA.
+📚 A la izquierda tenés distintas <strong>categorías por perfil profesional</strong> (Desarrollo Web, Testing QA, Videojuegos, UX/UI, etc).  
+Cada una tiene una consigna práctica que podés abordar diseñando un buen prompt y reflexionando sobre cómo mejorar las respuestas que recibís.
+
+🤖 También podés elegir entre dos modelos de IA distintos:
+<ul>
+<li><strong>llama3-8b-8192</strong>: más liviano, rápido y eficiente para tareas generales.</li>
+<li><strong>llama3-70b-8192</strong>: más potente y detallado, ideal para respuestas complejas.</li>
+</ul>
+
+💡 Tip: probá usar el mismo prompt en ambos modelos y compará sus respuestas. ¿Cuál te resultó más útil? ¿Por qué?
+
 </p>
 """, unsafe_allow_html=True)
 
