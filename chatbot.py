@@ -113,9 +113,7 @@ st.title("Bienvenidos al chatBot de Talento Tech")
 st.markdown("""
 <p style='font-size:16px; color:#1c1c1c; margin-top: -10px;'>
 
-🧠 Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong> del curso de Inteligencia Artificial.  
-Vas a poder resolver desafíos reales de tu área profesional mientras mejorás tu capacidad para dar instrucciones claras, específicas y funcionales a una IA.
-📚 A la izquierda tenés distintas <strong>categorías por perfil profesional</strong> (Desarrollo Web, Testing QA, Videojuegos, UX/UI, etc).  
+🧠 Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong> del curso de Inteligencia Artificial. Vas a poder resolver desafíos reales de tu área profesional mientras mejorás tu capacidad para dar instrucciones claras, específicas y funcionales a una IA. <strong>A la izquierda tenés distintas categorías por perfil profesional</strong> (Desarrollo Web, Testing QA, Videojuegos, UX/UI, etc).  
 Cada una tiene una consigna práctica que podés abordar diseñando un buen prompt y reflexionando sobre cómo mejorar las respuestas que recibís.
 
 🤖 También podés elegir entre dos modelos de IA distintos:
