@@ -108,7 +108,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.image("imagen1.png", width=400)
+st.image("C:/Users/admin/OneDrive/Documentos/aprende_programando/chatBotpruebaCurso/imagen1.png", width=400)
 st.title("Bienvenidos al chatBot de Talento Tech")
 
 
