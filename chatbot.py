@@ -110,7 +110,15 @@ st.markdown(
 
 st.image("imagen1.png", width=400)
 st.title("Bienvenidos al chatBot de Talento Tech")
-
+st.markdown("""
+<p style='font-size:16px; color:#1c1c1c; margin-top: -10px;'>
+Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong>.  
+El objetivo es que pongas en juego tus habilidades para redactar prompts <strong>claros, específicos y funcionales</strong> según cada desafío.  
+🧠 Probá distintas versiones, ajustá según los resultados y reflexioná sobre cómo influye el diseño del prompt en la calidad de la respuesta.
+<br><br>
+📌 Recordá: un buen prompt puede marcar la diferencia entre una respuesta vaga y una verdaderamente útil para tu curso o trabajo.
+</p>
+""", unsafe_allow_html=True)
 
 MODELOS = ['llama3-8b-8192', 'llama3-70b-8192'] # Se modifica en Clase 7
 def configurar_pagina():
