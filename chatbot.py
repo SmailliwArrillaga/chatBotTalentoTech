@@ -111,10 +111,17 @@ st.markdown(
 st.image("imagen1.png", width=400)
 st.title("Bienvenidos al chatBot de Talento Tech")
 
-col1, col2 = st.columns([1, 2])  # 1 parte imagen, 2 partes texto
+col1, col2 = st.columns([1, 2])
 
 with col1:
-    st.image("imagen2.png", width=200)  # Asegurate de que este nombre coincida con tu imagen subida
+    st.markdown(
+        """
+        <div style='display: flex; align-items: center; justify-content: center; height: 100%;'>
+            <img src="https://github.com/SmailliwArrillaga/chatBotTalentoTech/blob/5594e7e6b1f554ad2f6ce3693af9ec2d48480476/imagen2.png" width="200">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 with col2:
     st.markdown("""
@@ -126,13 +133,12 @@ with col2:
     ---
 
     🤖 **También podés elegir entre dos modelos de IA distintos:**  
-    - **llama3-8b-8192**: más liviano, rápido y eficiente para tareas generales.  
-    - **llama3-70b-8192**: más potente y detallado, ideal para respuestas complejas.
+    - `llama3-8b-8192`: más liviano, rápido y eficiente para tareas generales.  
+    - `llama3-70b-8192`: más potente y detallado, ideal para respuestas complejas.
 
     💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
     👉 ¿Cuál te resultó más útil? ¿Por qué?
     """)
-
 MODELOS = ['llama3-8b-8192', 'llama3-70b-8192'] # Se modifica en Clase 7
 def configurar_pagina():
     
