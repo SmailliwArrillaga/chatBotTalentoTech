@@ -130,7 +130,6 @@ Cada una tiene una consigna práctica que podés abordar diseñando un buen prom
 MODELOS = ['llama3-8b-8192', 'llama3-70b-8192'] # Se modifica en Clase 7
 def configurar_pagina():
     
-   def configurar_pagina():
     st.sidebar.title("Modelos disponibles")
     elegirModelo = st.sidebar.selectbox('Elegí un Modelo', options=MODELOS, index=0)
     st.sidebar.markdown("---")
