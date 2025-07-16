@@ -110,22 +110,28 @@ st.markdown(
 
 st.image("imagen1.png", width=400)
 st.title("Bienvenidos al chatBot de Talento Tech")
-st.markdown("""
-<p style='font-size:16px; color:#1c1c1c; margin-top: -10px;'>
 
-🧠 Este chatbot fue creado para que practiques lo aprendido en el <strong>Módulo 2: Diseño de Prompts</strong> del curso de Inteligencia Artificial. Vas a poder resolver desafíos reales de tu área profesional mientras mejorás tu capacidad para dar instrucciones claras, específicas y funcionales a una IA. <strong>A la izquierda tenés distintas categorías por perfil profesional</strong> (Desarrollo Web, Testing QA, Videojuegos, UX/UI, etc).  
-Cada una tiene una consigna práctica que podés abordar diseñando un buen prompt y reflexionando sobre cómo mejorar las respuestas que recibís.
+col1, col2 = st.columns([1, 2])  # 1 parte imagen, 2 partes texto
 
-🤖 También podés elegir entre dos modelos de IA distintos:
-<ul>
-<li><strong>llama3-8b-8192</strong>: más liviano, rápido y eficiente para tareas generales.</li>
-<li><strong>llama3-70b-8192</strong>: más potente y detallado, ideal para respuestas complejas.</li>
-</ul>
+with col1:
+    st.image("imagen2.png", width=200)  # Asegurate de que este nombre coincida con tu imagen subida
 
-💡 Tip: probá usar el mismo prompt en ambos modelos y compará sus respuestas. ¿Cuál te resultó más útil? ¿Por qué?
+with col2:
+    st.markdown("""
+    🧠 **Este chatbot fue creado para que practiques lo aprendido en el Módulo 2: Diseño de Prompts del curso de Inteligencia Artificial.**  
+    Vas a poder resolver desafíos reales de tu área profesional mientras mejorás tu capacidad para dar instrucciones claras, específicas y funcionales a una IA.  
+    A la izquierda tenés distintas categorías por perfil profesional (Desarrollo Web, Testing QA, Videojuegos, UX/UI, etc).  
+    Cada una tiene una consigna práctica que podés abordar diseñando un buen prompt y reflexionando sobre cómo mejorar las respuestas que recibís.
 
-</p>
-""", unsafe_allow_html=True)
+    ---
+
+    🤖 **También podés elegir entre dos modelos de IA distintos:**  
+    - `llama3-8b-8192`: más liviano, rápido y eficiente para tareas generales.  
+    - `llama3-70b-8192`: más potente y detallado, ideal para respuestas complejas.
+
+    💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
+    👉 ¿Cuál te resultó más útil? ¿Por qué?
+    """)
 
 MODELOS = ['llama3-8b-8192', 'llama3-70b-8192'] # Se modifica en Clase 7
 def configurar_pagina():
