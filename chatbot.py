@@ -154,10 +154,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Creá una API RESTful en Flask que reciba datos por POST.
+        
         💬 **Consigna 2:**
         Diseñá un backend en Django que permita registro y login de usuarios.
+        
         💬 **Consigna 3:**
         Generá un endpoint para editar perfiles en una app web.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
@@ -166,10 +169,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Justificá decisiones de diseño para una app orientada a adolescentes, con foco en accesibilidad.
+        
         💬 **Consigna 2:**
         Redactá un prompt para diseñar una pantalla de login atractiva y funcional.
+        
         💬 **Consigna 3:**
         Evaluá una interfaz con problemas de contraste y accesibilidad visual.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
@@ -178,10 +184,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Depurá un script de Unity que no permite saltar con la barra espaciadora.
+        
         💬 **Consigna 2:**
         Generá un sistema de puntuación para un juego 2D.
+        
         💬 **Consigna 3:**
         Diseñá un menú de pausa funcional y estilizado en Unity.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
@@ -190,10 +199,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Generá casos de prueba funcionales para una app de login.
+        
         💬 **Consigna 2:**
         Diseñá un plan de pruebas para un formulario de contacto.
+        
         💬 **Consigna 3:**
         Redactá un caso de prueba para validar un selector desplegable.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
@@ -202,10 +214,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Validá el campo email de un formulario usando HTML + JavaScript.
+        
         💬 **Consigna 2:**
         Creá una landing page responsive para un producto ficticio.
+        
         💬 **Consigna 3:**
         Estilizá un formulario de contacto con CSS moderno.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
@@ -214,10 +229,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Creá una base de datos en PostgreSQL para almacenar usuarios y sus roles.
+        
         💬 **Consigna 2:**
         Implementá autenticación JWT en una API desarrollada con Node.js.
+        
         💬 **Consigna 3:**
         Optimizá una consulta SQL que tarda mucho tiempo en ejecutarse.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
          """)
@@ -226,10 +244,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Redactá un perfil profesional enfocado en Testing QA para colocar en tu CV o LinkedIn.
+        
         💬 **Consigna 2:**
         Pedí ayuda para mejorar tu comunicación por email ante un conflicto laboral.
+        
         💬 **Consigna 3:**
         Solicitá recomendaciones para preparar una entrevista de trabajo en tecnología.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
