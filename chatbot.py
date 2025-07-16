@@ -114,6 +114,7 @@ st.title("Bienvenidos al chatBot de Talento Tech")
 col1, col2 = st.columns([1, 2])  # 1 parte imagen, 2 partes texto
 
 with col1:
+    st.markdown("<br><br><br>", unsafe_allow_html=True)  # empuja la imagen hacia el centro
     st.image("imagen2.png", width=200)  # Asegurate de que este nombre coincida con tu imagen subida
 
 with col2:
