@@ -6,7 +6,7 @@ import time
 # Le agregamos el nombre a la pestaña y un ícono. Esta configuración tiene que ser la primer linea de streamlit.
 st.set_page_config(
     page_title="ChatBot Talento Tech",
-    page_icon="8️⃣",
+    page_icon="🤖",
     layout="wide"  # ← ¡CAMBIA esto a wide!
 )
 
