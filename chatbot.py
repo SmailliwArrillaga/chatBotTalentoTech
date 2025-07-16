@@ -126,8 +126,8 @@ with col2:
     ---
 
     🤖 **También podés elegir entre dos modelos de IA distintos:**  
-    - `llama3-8b-8192`: más liviano, rápido y eficiente para tareas generales.  
-    - `llama3-70b-8192`: más potente y detallado, ideal para respuestas complejas.
+    - **llama3-8b-8192**: más liviano, rápido y eficiente para tareas generales.  
+    - **llama3-70b-8192**: más potente y detallado, ideal para respuestas complejas.
 
     💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
     👉 ¿Cuál te resultó más útil? ¿Por qué?
