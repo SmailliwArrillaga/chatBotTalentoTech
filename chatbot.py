@@ -117,7 +117,7 @@ with col1:
     st.markdown(
         """
         <div style='display: flex; align-items: center; justify-content: center; height: 100%;'>
-            <img src="https://github.com/SmailliwArrillaga/chatBotTalentoTech/blob/5594e7e6b1f554ad2f6ce3693af9ec2d48480476/imagen2.png" width="200">
+            <img src="imagen2.png" width="200">
         </div>
         """,
         unsafe_allow_html=True
