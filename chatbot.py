@@ -139,10 +139,13 @@ def configurar_pagina():
         st.markdown("""
         💬 **Consigna 1:**
         Representá la evolución de ventas mensuales con Matplotlib.
+        
         💬 **Consigna 2:**
         Generá un gráfico de torta que muestre el porcentaje de asistencia de una clase usando Python y Pandas.
+        
         💬 **Consigna 3:**
         Creá una tabla dinámica en Excel que te permita analizar las ventas por región.
+        
         👉 Usá el chatbot para diseñar un prompt claro, específico y alineado con lo que necesitás lograr.  
         🤔 ¿Qué elementos del prompt creés que lo hacen más efectivo?
         """)
