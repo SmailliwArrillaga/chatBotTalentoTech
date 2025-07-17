@@ -162,126 +162,126 @@ def configurar_pagina():
 
     with st.sidebar.expander("🌐 Desarrollo Full Stack"):
         st.markdown("""
-        🧾 Estás trabajando en una app de carga de datos y necesitás crear una API para que los usuarios envíen información.
         💬 **Consigna 1**
+        🧾 Estás trabajando en una app de carga de datos y necesitás crear una API para que los usuarios envíen información.
         Te invito a usar el chatbot para generar una API RESTful con Flask que reciba datos por POST.  
         🤔 ¿Qué información del problema debés incluir en tu prompt?
 
-        🔐 Tenés que implementar una función de registro y login en un backend para que los usuarios accedan a su perfil.
         💬 **Consigna 2**
+        🔐 Tenés que implementar una función de registro y login en un backend para que los usuarios accedan a su perfil.
         Te invito a usar el chatbot para estructurar un sistema de autenticación en Django.  
         🤔 ¿Cómo describirías tu necesidad de manera precisa en el prompt?
 
-        🧑‍💻 Estás desarrollando una plataforma donde los usuarios puedan editar su perfil de manera segura.
         💬 **Consigna 3**
+        🧑‍💻 Estás desarrollando una plataforma donde los usuarios puedan editar su perfil de manera segura.
         Te invito a usar el chatbot para definir un endpoint funcional para esta tarea.  
         🤔 ¿Qué información necesitás compartirle a la IA para que lo diseñe correctamente?
         """)
 
     with st.sidebar.expander("🎨 UX/UI"):
         st.markdown("""
-        👩‍🎨 Estás diseñando una app para adolescentes con foco en inclusión y necesitás justificar decisiones clave de accesibilidad.
         💬 **Consigna 1**
+        👩‍🎨 Estás diseñando una app para adolescentes con foco en inclusión y necesitás justificar decisiones clave de accesibilidad.
         Te invito a usar el chatbot para redactar tu justificación.  
         🤔 ¿Qué aspectos debés destacar en tu prompt para obtener una respuesta útil?
 
-        🔐 Te encargaron diseñar la pantalla de login para una app moderna y querés que sea visualmente atractiva y fácil de usar.
         💬 **Consigna 2**
+        🔐 Te encargaron diseñar la pantalla de login para una app moderna y querés que sea visualmente atractiva y fácil de usar.
         Te invito a usar el chatbot para obtener sugerencias de diseño y estructura.  
         🤔 ¿Qué características querés que tenga la pantalla para poder incluirlas en tu prompt?
-
-        🧑‍🦯 Un colega detectó que algunos usuarios no distinguen bien los textos en tu diseño. Necesitás evaluar contraste y accesibilidad visual.
+        
         💬 **Consigna 3**
+        🧑‍🦯 Un colega detectó que algunos usuarios no distinguen bien los textos en tu diseño. Necesitás evaluar contraste y accesibilidad visual.
         Te invito a usar el chatbot para hacer esa evaluación.  
         🤔 ¿Qué tipo de interfaz o contexto tenés que describir para obtener buenos resultados?
         """)
 
     with st.sidebar.expander("🎮 Videojuegos"):
         st.markdown("""
-        🕹️ Estás desarrollando un juego en Unity pero el personaje no responde al presionar la barra espaciadora para saltar.
         💬 **Consigna 1**
+        🕹️ Estás desarrollando un juego en Unity pero el personaje no responde al presionar la barra espaciadora para saltar.
         Te invito a usar el chatbot para depurar el script.  
         🤔 ¿Qué parte del código o comportamiento necesitás explicarle al modelo para ayudarte mejor?
 
-        🧠 Querés implementar un sistema de puntuación que motive al jugador a avanzar en tu juego 2D.
         💬 **Consigna 2**
+        🧠 Querés implementar un sistema de puntuación que motive al jugador a avanzar en tu juego 2D.
         Te invito a usar el chatbot para desarrollar esa lógica.  
         🤔 ¿Qué condiciones o eventos clave debés describir en el prompt?
 
-        🎮 Necesitás un menú de pausa que no corte la experiencia del jugador y se vea profesional.
         💬 **Consigna 3**
+        🎮 Necesitás un menú de pausa que no corte la experiencia del jugador y se vea profesional.
         Te invito a usar el chatbot para generar una interfaz funcional y estilizada.  
         🤔 ¿Qué aspectos visuales o técnicos deberías detallar?
         """)
 
     with st.sidebar.expander("🧪 Tester QA"):
         st.markdown("""
-        🔐 Te pasaron una app de login que tenés que testear. Querés validar qué pasa con credenciales inválidas y vacías.
         💬 **Consigna 1**
+        🔐 Te pasaron una app de login que tenés que testear. Querés validar qué pasa con credenciales inválidas y vacías.
         Te invito a usar el chatbot para generar casos de prueba funcionales.  
         🤔 ¿Cómo redactarías el prompt para que incluya distintos escenarios?
 
-        📨 Un nuevo formulario de contacto fue agregado a la web y necesitás asegurarte de que todo funcione correctamente.
         💬 **Consigna 2**
+        📨 Un nuevo formulario de contacto fue agregado a la web y necesitás asegurarte de que todo funcione correctamente.
         Te invito a usar el chatbot para diseñar un plan de pruebas adecuado.  
         🤔 ¿Qué partes del formulario necesitás mencionar en el prompt?
 
-        🔽 Estás verificando un selector desplegable que no muestra todas las opciones. Necesitás redactar un caso de prueba.
         💬 **Consigna 3**
+        🔽 Estás verificando un selector desplegable que no muestra todas las opciones. Necesitás redactar un caso de prueba.
         Te invito a usar el chatbot para formular ese caso.  
         🤔 ¿Qué comportamientos deberías describir para que la IA entienda el problema?
         """)
 
     with st.sidebar.expander("💻 Front-End"):
         st.markdown("""
-        📧 Necesitás validar el campo de email en un formulario para evitar errores al enviar datos.
         💬 **Consigna 1**
+        📧 Necesitás validar el campo de email en un formulario para evitar errores al enviar datos.
         Te invito a usar el chatbot para generar una solución con HTML y JavaScript.  
         🤔 ¿Qué condiciones o errores querés evitar?
 
-        🌐 Estás creando una landing page para promocionar un producto nuevo y necesitás que se vea bien en todos los dispositivos.
         💬 **Consigna 2**
+        🌐 Estás creando una landing page para promocionar un producto nuevo y necesitás que se vea bien en todos los dispositivos.
         Te invito a usar el chatbot para estructurar el código base.  
         🤔 ¿Qué detalles deberías incluir sobre el producto o la estética esperada?
 
-        🎨 Tenés un formulario de contacto muy básico y querés modernizar su apariencia con CSS.
         💬 **Consigna 3**
+        🎨 Tenés un formulario de contacto muy básico y querés modernizar su apariencia con CSS.
         Te invito a usar el chatbot para estilizarlo.  
         🤔 ¿Qué tipo de estilo o efecto te gustaría lograr?
         """)
 
     with st.sidebar.expander("🛠️ Desarrollo Backend"):
         st.markdown("""
-        🧾 Estás construyendo un sistema interno que requiere guardar usuarios y roles. Necesitás estructurar la base de datos.
         💬 **Consigna 1**
+        🧾 Estás construyendo un sistema interno que requiere guardar usuarios y roles. Necesitás estructurar la base de datos.
         Te invito a usar el chatbot para generar la base en PostgreSQL.  
         🤔 ¿Qué campos o relaciones querés que tenga?
-
-        🔑 Tenés que proteger tu API y te pidieron implementar autenticación basada en tokens JWT.
+        
         💬 **Consigna 2**
+        🔑 Tenés que proteger tu API y te pidieron implementar autenticación basada en tokens JWT.
         Te invito a usar el chatbot para guiarte en la integración de JWT.  
         🤔 ¿Qué parte del flujo de autenticación necesitás implementar?
 
-        🐢 Tenés una consulta SQL que tarda demasiado y afecta el rendimiento general del sistema.
         💬 **Consigna 3**
+        🐢 Tenés una consulta SQL que tarda demasiado y afecta el rendimiento general del sistema.
         Te invito a usar el chatbot para optimizarla.  
         🤔 ¿Qué datos deberías compartir en el prompt para que la IA analice correctamente?
         """)
 
     with st.sidebar.expander("🧠 Soft Skills"):
         st.markdown("""
-        👩‍💼 Estás actualizando tu perfil profesional en LinkedIn y querés que destaque tus habilidades en Testing QA.
         💬 **Consigna 1**
+        👩‍💼 Estás actualizando tu perfil profesional en LinkedIn y querés que destaque tus habilidades en Testing QA.
         Te invito a usar el chatbot para redactar una versión clara y atractiva.  
         🤔 ¿Qué logros o conocimientos querés resaltar?
 
-        📧 Tuviste una discusión con un compañero por la distribución de tareas y necesitás enviarle un email profesional que no escale el conflicto.
         💬 **Consigna 2**
+        📧 Tuviste una discusión con un compañero por la distribución de tareas y necesitás enviarle un email profesional que no escale el conflicto.
         Te invito a usar el chatbot para generar un borrador empático y efectivo.  
         🤔 ¿Qué elementos deberías incluir en tu prompt para lograrlo?
 
-        🧑‍💼 Te convocaron a una entrevista de trabajo en tecnología y querés prepararte mejor para responder preguntas difíciles.
         💬 **Consigna 3**
+        🧑‍💼 Te convocaron a una entrevista de trabajo en tecnología y querés prepararte mejor para responder preguntas difíciles.
         Te invito a usar el chatbot para que te ayude a prepararte.  
         🤔 ¿Qué tipo de preguntas te gustaría practicar y qué contexto podrías dar?
         """)
