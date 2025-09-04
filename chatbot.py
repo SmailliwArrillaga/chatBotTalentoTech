@@ -86,8 +86,8 @@ with col2:
     ---
 
     🤖 **Modelos de IA disponibles:**  
-    **1. Llama 3.1 8B Instant**: más liviano, rápido y eficiente para tareas generales.  
-    **2. Llama 3.3 70B Versatile**: más potente y detallado, ideal para respuestas complejas.
+    **1. Llama 3.1 8B Instant** (rápido/eficiente).  
+    **2. Llama 3.3 70B Versatile** (más detallado para respuestas complejas).
 
     💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
     👉 ¿Cuál te resultó más útil? ¿Por qué?
@@ -99,7 +99,7 @@ with col2:
 OPCIONES_UI = {
     "⚡ Rápido (Llama 3.1 8B Instant)": "llama-3.1-8b-instant",
     "🧠 Detallado (Llama 3.3 70B Versatile)": "llama-3.3-70b-versatile",
-    # Extras (si los tenés habilitados en tu cuenta, quedan disponibles automáticamente):
+    # Extras opcionales (si están habilitados en tu cuenta):
     "🧪 Reasoning (DeepSeek R1 Distill 70B)": "deepseek-r1-distill-llama-70b",
     "🌿 Gemma 2 9B (IT)": "gemma2-9b-it",
 }
@@ -113,6 +113,25 @@ def normalizar_modelo(mid: str) -> str:
     return ALIAS_ANTIGUOS.get(mid, mid)
 
 # ──────────────────────────────────────────────────────────────────────────────
+# Flags de debug (para no mostrar la lista a estudiantes)
+# ──────────────────────────────────────────────────────────────────────────────
+def _is_debug_models() -> bool:
+    """Activa modo debug si:
+       - en Secrets: debug_models="1", o
+       - en la URL agregás ?debug_models=1
+    """
+    try:
+        if st.secrets.get("debug_models", "0") == "1":
+            return True
+    except Exception:
+        pass
+    try:
+        params = st.query_params  # Streamlit >= 1.30
+    except Exception:
+        params = st.experimental_get_query_params()
+    return params.get("debug_models", ["0"])[0] == "1"
+
+# ──────────────────────────────────────────────────────────────────────────────
 # Cliente Groq
 # ──────────────────────────────────────────────────────────────────────────────
 def crear_usuario_groq():
@@ -120,30 +139,33 @@ def crear_usuario_groq():
     return Groq(api_key=claveSecreta)
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Configuración y UI lateral (filtra por modelos realmente habilitados)
+# Configuración y UI lateral (filtra por modelos habilitados; no muestra lista)
 # ──────────────────────────────────────────────────────────────────────────────
 def configurar_pagina(cliente_para_listar: Groq) -> str:
     st.sidebar.title("Modelos disponibles")
 
-    # Listar modelos habilitados en la cuenta/organización
+    # 1) Listar modelos habilitados en la cuenta/organización (sin mostrarlos)
     disponibles = set()
     try:
         disponibles = {m.id for m in cliente_para_listar.models.list().data}
-        with st.sidebar.expander("Modelos habilitados en tu cuenta", expanded=False):
-            st.write(sorted(list(disponibles))[:50])
     except Exception:
         st.sidebar.info("No se pudieron listar modelos. Verificá tu clave o permisos.")
 
-    # Quedarnos solo con los que existen en tu cuenta
-    opciones_validas = {label: mid for label, mid in OPCIONES_UI.items() if mid in disponibles}
+    # 2) Filtrar opciones por lo que realmente existe en tu cuenta (si pudimos listar)
+    opciones_validas = {label: mid for label, mid in OPCIONES_UI.items() if (not disponibles) or (mid in disponibles)}
     if not opciones_validas:
-        st.sidebar.error("Ninguno de los modelos sugeridos está habilitado en tu cuenta.")
+        st.sidebar.error("No hay modelos compatibles habilitados en tu cuenta.")
         st.stop()
 
+    # 3) Selector limpio para estudiantes (sin warnings)
     etiqueta = st.sidebar.selectbox("Elegí un Modelo", options=list(opciones_validas.keys()), index=0)
     modelo_elegido = opciones_validas[etiqueta]
-    st.sidebar.markdown("---")
     st.sidebar.caption(f"Modelo seleccionado: `{modelo_elegido}`")
+
+    # 4) SOLO en modo debug mostramos la lista cruda (para vos)
+    if _is_debug_models() and disponibles:
+        with st.sidebar.expander("DEBUG: Modelos habilitados", expanded=False):
+            st.code("\n".join(sorted(disponibles)), language="text")
 
     # Sección de actividades (igual que antes)
     st.sidebar.subheader("🧪 Laboratorio de Prompts - Prácticas por Categoría")
@@ -300,12 +322,12 @@ def generar_respuesta(chat_completo):
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
 def main():
-    clienteUsuario = crear_usuario_groq()            # 1) Crear cliente primero
-    modelo = configurar_pagina(clienteUsuario)       # 2) Armar selector con lo que REALMENTE está habilitado
+    clienteUsuario = crear_usuario_groq()                  # Crear cliente primero
+    modelo = configurar_pagina(clienteUsuario)             # Selector sin mostrar lista (salvo debug)
     inicializar_estado()
     area_chat()
 
-    # Descomentar esta línea para hacer una prueba rápida SIN streaming:
+    # Botón de prueba SIN streaming (opcional)
     # st.sidebar.button("Test sin streaming", on_click=lambda: st.sidebar.write(
     #     test_llamada_simple(clienteUsuario, modelo, "Decime un haiku sobre Talento Tech.")
     # ))
@@ -327,6 +349,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
