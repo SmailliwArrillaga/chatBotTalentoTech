@@ -86,8 +86,10 @@ with col2:
     ---
 
     🤖 **Modelos de IA disponibles:**  
-    **1. Llama 3.1 8B Instant** (rápido/eficiente).  
-    **2. Llama 3.3 70B Versatile** (más detallado para respuestas complejas).
+    **1. Llama 3.1 8B Instant** — rápido y eficiente para tareas generales.  
+    **2. Llama 3.3 70B Versatile** — más detallado para respuestas complejas.  
+    **3. DeepSeek R1 Distill 70B (Razonamiento)** — ideal para explicaciones paso a paso y problemas no triviales.  
+    **4. Gemma 2 9B (Instrucciones)** — liviano, buen español, útil para textos creativos y consultas breves.
 
     💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
     👉 ¿Cuál te resultó más útil? ¿Por qué?
@@ -99,9 +101,9 @@ with col2:
 OPCIONES_UI = {
     "⚡ Rápido (Llama 3.1 8B Instant)": "llama-3.1-8b-instant",
     "🧠 Detallado (Llama 3.3 70B Versatile)": "llama-3.3-70b-versatile",
-    # Extras opcionales (si están habilitados en tu cuenta):
-    "🧪 Reasoning (DeepSeek R1 Distill 70B)": "deepseek-r1-distill-llama-70b",
-    "🌿 Gemma 2 9B (IT)": "gemma2-9b-it",
+    # Extras (solo se muestran si tu cuenta los tiene habilitados):
+    "🧪 Razonamiento (DeepSeek R1 Distill 70B)": "deepseek-r1-distill-llama-70b",
+    "🌿 Gemma 2 9B (Instrucciones)": "gemma2-9b-it",
 }
 
 ALIAS_ANTIGUOS = {
@@ -349,6 +351,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
