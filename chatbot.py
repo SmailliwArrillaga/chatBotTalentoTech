@@ -85,43 +85,68 @@ with col2:
 
     ---
 
-    🤖 **También podés elegir entre dos modelos de IA distintos:**  
-    **1. llama3-8b-8192**: más liviano, rápido y eficiente para tareas generales.  
-    **2. llama3-70b-8192**: más potente y detallado, ideal para respuestas complejas.
+    🤖 **Modelos de IA disponibles:**  
+    **1. Llama 3.1 8B Instant**: más liviano, rápido y eficiente para tareas generales.  
+    **2. Llama 3.3 70B Versatile**: más potente y detallado, ideal para respuestas complejas.
 
     💡 *Tip:* probá usar el mismo prompt en ambos modelos y compará sus respuestas.  
     👉 ¿Cuál te resultó más útil? ¿Por qué?
     """)
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Configuración y UI lateral
+# Mapas de modelos (alias UI → ID real) y compatibilidad con IDs viejos
 # ──────────────────────────────────────────────────────────────────────────────
-MODELOS = ['llama3-8b-8192', 'llama3-70b-8192']
+OPCIONES_UI = {
+    "⚡ Rápido (Llama 3.1 8B Instant)": "llama-3.1-8b-instant",
+    "🧠 Detallado (Llama 3.3 70B Versatile)": "llama-3.3-70b-versatile",
+    # Extras (si los tenés habilitados en tu cuenta, quedan disponibles automáticamente):
+    "🧪 Reasoning (DeepSeek R1 Distill 70B)": "deepseek-r1-distill-llama-70b",
+    "🌿 Gemma 2 9B (IT)": "gemma2-9b-it",
+}
 
-def configurar_pagina():
+ALIAS_ANTIGUOS = {
+    "llama3-8b-8192": "llama-3.1-8b-instant",
+    "llama3-70b-8192": "llama-3.3-70b-versatile",
+}
+
+def normalizar_modelo(mid: str) -> str:
+    return ALIAS_ANTIGUOS.get(mid, mid)
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Cliente Groq
+# ──────────────────────────────────────────────────────────────────────────────
+def crear_usuario_groq():
+    claveSecreta = st.secrets["clave_api"]  # Debe ser gsk_...
+    return Groq(api_key=claveSecreta)
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Configuración y UI lateral (filtra por modelos realmente habilitados)
+# ──────────────────────────────────────────────────────────────────────────────
+def configurar_pagina(cliente_para_listar: Groq) -> str:
     st.sidebar.title("Modelos disponibles")
 
-    # Cliente temporal para listar modelos (si se desea)
+    # Listar modelos habilitados en la cuenta/organización
+    disponibles = set()
     try:
-        claveSecreta = st.secrets["clave_api"]
-        _cliente_tmp = Groq(api_key=claveSecreta)
-        disponibles = [m.id for m in _cliente_tmp.models.list().data]
+        disponibles = {m.id for m in cliente_para_listar.models.list().data}
         with st.sidebar.expander("Modelos habilitados en tu cuenta", expanded=False):
-            st.write(disponibles)
-        # Si alguno de MODELOS no está habilitado, avisamos
-        faltantes = [m for m in MODELOS if m not in disponibles]
-        if faltantes:
-            st.sidebar.warning(
-                f"Estos modelos no figuran habilitados: {', '.join(faltantes)}. "
-                "Si elegís uno no habilitado, la API puede devolver BadRequest."
-            )
-    except Exception as e:
+            st.write(sorted(list(disponibles))[:50])
+    except Exception:
         st.sidebar.info("No se pudieron listar modelos. Verificá tu clave o permisos.")
 
-    elegirModelo = st.sidebar.selectbox('Elegí un Modelo', options=MODELOS, index=0)
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("🧪 Laboratorio de Prompts - Prácticas por Categoría")
+    # Quedarnos solo con los que existen en tu cuenta
+    opciones_validas = {label: mid for label, mid in OPCIONES_UI.items() if mid in disponibles}
+    if not opciones_validas:
+        st.sidebar.error("Ninguno de los modelos sugeridos está habilitado en tu cuenta.")
+        st.stop()
 
+    etiqueta = st.sidebar.selectbox("Elegí un Modelo", options=list(opciones_validas.keys()), index=0)
+    modelo_elegido = opciones_validas[etiqueta]
+    st.sidebar.markdown("---")
+    st.sidebar.caption(f"Modelo seleccionado: `{modelo_elegido}`")
+
+    # Sección de actividades (igual que antes)
+    st.sidebar.subheader("🧪 Laboratorio de Prompts - Prácticas por Categoría")
     with st.sidebar.expander("🧮 Data Analytics"):
         st.markdown("""
         **Consigna 1**: Evolución de ventas con Matplotlib.  
@@ -178,23 +203,16 @@ def configurar_pagina():
         **Consigna 3**: Preparación para entrevista.
         """)
 
-    return elegirModelo
-
-# ──────────────────────────────────────────────────────────────────────────────
-# Cliente Groq
-# ──────────────────────────────────────────────────────────────────────────────
-def crear_usuario_groq():
-    claveSecreta = st.secrets["clave_api"]  # Debe ser gsk_...
-    return Groq(api_key=claveSecreta)
+    return modelo_elegido
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Llamadas a Groq
 # ──────────────────────────────────────────────────────────────────────────────
-def configurar_modelo(cliente, modelo, mensajeDeEntrada):
+def configurar_modelo(cliente: Groq, modelo: str, mensajeDeEntrada: str):
     """Llamada en streaming con parámetros seguros y manejo de error."""
     try:
         return cliente.chat.completions.create(
-            model=modelo,
+            model=normalizar_modelo(modelo),
             messages=[
                 {"role": "system", "content": "Sos un asistente claro, conciso y pedagógico."},
                 {"role": "user", "content": str(mensajeDeEntrada)}
@@ -213,10 +231,10 @@ def configurar_modelo(cliente, modelo, mensajeDeEntrada):
             pass
         raise
 
-def test_llamada_simple(cliente, modelo, texto):
+def test_llamada_simple(cliente: Groq, modelo: str, texto: str):
     """Utilidad de diagnóstico SIN streaming; útil para aislar errores."""
     resp = cliente.chat.completions.create(
-        model=modelo,
+        model=normalizar_modelo(modelo),
         messages=[
             {"role": "system", "content": "Sos un asistente claro, conciso y pedagógico."},
             {"role": "user", "content": str(texto)}
@@ -282,8 +300,8 @@ def generar_respuesta(chat_completo):
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
 def main():
-    modelo = configurar_pagina()
-    clienteUsuario = crear_usuario_groq()
+    clienteUsuario = crear_usuario_groq()            # 1) Crear cliente primero
+    modelo = configurar_pagina(clienteUsuario)       # 2) Armar selector con lo que REALMENTE está habilitado
     inicializar_estado()
     area_chat()
 
@@ -310,5 +328,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-        
+
 
